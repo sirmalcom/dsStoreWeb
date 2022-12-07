@@ -103,8 +103,8 @@ const ProcessOrder = ({ history, match }) => {
                       >
                         {order.paymentInfo &&
                         order.paymentInfo.status === "succeeded"
-                          ? "PAID"
-                          : "NOT PAID"}
+                          ? "PAGADO"
+                          : "NO PAGADO"}
                       </p>
                     </div>
 
@@ -140,8 +140,8 @@ const ProcessOrder = ({ history, match }) => {
                             {item.name}
                           </Link>{" "}
                           <span>
-                            {item.quantity} X S/{item.price} ={" "}
-                            <b>₹{item.price * item.quantity}</b>
+                            {item.quantity} X S/ {item.price} ={" "}
+                            <b>S/ {item.price * item.quantity}</b>
                           </span>
                         </div>
                       ))}
@@ -158,18 +158,18 @@ const ProcessOrder = ({ history, match }) => {
                   className="updateOrderForm"
                   onSubmit={updateOrderSubmitHandler}
                 >
-                  <h1>Process Order</h1>
+                  <h1>Procesar Orden</h1>
 
                   <div>
                     <AccountTreeIcon />
                     <select onChange={(e) => setStatus(e.target.value)}>
-                      <option value="">Choose Category</option>
+                      <option value="">Elegir Categoria</option>
                       {order.orderStatus === "Processing" && (
-                        <option value="Shipped">Shipped</option>
+                        <option value="Shipped">Enviado</option>
                       )}
 
                       {order.orderStatus === "Shipped" && (
-                        <option value="Delivered">Delivered</option>
+                        <option value="Delivered">Entregado</option>
                       )}
                     </select>
                   </div>
@@ -181,7 +181,7 @@ const ProcessOrder = ({ history, match }) => {
                       loading ? true : false || status === "" ? true : false
                     }
                   >
-                    Process
+                    Procesar
                   </Button>
                 </form>
               </div>

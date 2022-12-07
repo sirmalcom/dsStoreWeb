@@ -62,25 +62,25 @@ const ProductReviews = ({ history }) => {
   }, [dispatch, alert, error, deleteError, history, isDeleted, productId]);
 
   const columns = [
-    { field: "id", headerName: "Review ID", minWidth: 200, flex: 0.5 },
+    { field: "id", headerName: "ID Reseña", minWidth: 200, flex: 0.5 },
 
     {
       field: "user",
-      headerName: "User",
+      headerName: "Usuario",
       minWidth: 200,
       flex: 0.6,
     },
 
     {
       field: "comment",
-      headerName: "Comment",
+      headerName: "Comentario",
       minWidth: 350,
       flex: 1,
     },
 
     {
       field: "rating",
-      headerName: "Rating",
+      headerName: "Reseña",
       type: "number",
       minWidth: 180,
       flex: 0.4,
@@ -95,7 +95,7 @@ const ProductReviews = ({ history }) => {
     {
       field: "actions",
       flex: 0.3,
-      headerName: "Actions",
+      headerName: "Acciones",
       minWidth: 150,
       type: "number",
       sortable: false,
@@ -138,13 +138,13 @@ const ProductReviews = ({ history }) => {
             className="productReviewsForm"
             onSubmit={productReviewsSubmitHandler}
           >
-            <h1 className="productReviewsFormHeading">ALL REVIEWS</h1>
+            <h1 className="productReviewsFormHeading">Reseñas</h1>
 
             <div>
               <Star />
               <input
                 type="text"
-                placeholder="Product Id"
+                placeholder="Id Producto"
                 required
                 value={productId}
                 onChange={(e) => setProductId(e.target.value)}
@@ -158,7 +158,7 @@ const ProductReviews = ({ history }) => {
                 loading ? true : false || productId === "" ? true : false
               }
             >
-              Search
+              Buscar
             </Button>
           </form>
 
@@ -172,7 +172,7 @@ const ProductReviews = ({ history }) => {
               autoHeight
             />
           ) : (
-            <h1 className="productReviewsFormHeading">No Reviews Found</h1>
+            <h1 className="productReviewsFormHeading">No se encontraron reseñas</h1>
           )}
         </div>
       </div>

@@ -52,7 +52,7 @@ const UpdateUser = ({ history, match }) => {
     }
 
     if (isUpdated) {
-      alert.success("User Updated Successfully");
+      alert.success("Usuario Actualizado");
       history.push("/admin/users");
       dispatch({ type: UPDATE_USER_RESET });
     }
@@ -83,13 +83,13 @@ const UpdateUser = ({ history, match }) => {
               className="createProductForm"
               onSubmit={updateUserSubmitHandler}
             >
-              <h1>Update User</h1>
+              <h1>Actualizar Usuario</h1>
 
               <div>
                 <PersonIcon />
                 <input
                   type="text"
-                  placeholder="Name"
+                  placeholder="Nombre"
                   required
                   value={name}
                   onChange={(e) => setName(e.target.value)}
@@ -109,9 +109,9 @@ const UpdateUser = ({ history, match }) => {
               <div>
                 <VerifiedUserIcon />
                 <select value={role} onChange={(e) => setRole(e.target.value)}>
-                  <option value="">Choose Role</option>
-                  <option value="admin">Admin</option>
-                  <option value="user">User</option>
+                  <option value="">Elija su rol</option>
+                  <option value="admin">Administrador</option>
+                  <option value="user">Usuario</option>
                 </select>
               </div>
 
@@ -122,7 +122,7 @@ const UpdateUser = ({ history, match }) => {
                   updateLoading ? true : false || role === "" ? true : false
                 }
               >
-                Update
+                Actualizar
               </Button>
             </form>
           )}

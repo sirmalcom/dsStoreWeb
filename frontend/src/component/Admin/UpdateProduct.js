@@ -135,13 +135,13 @@ const UpdateProduct = ({ history, match }) => {
             encType="multipart/form-data"
             onSubmit={updateProductSubmitHandler}
           >
-            <h1>Create Product</h1>
+            <h1>Actualizar Producto</h1>
 
             <div>
               <SpellcheckIcon />
               <input
                 type="text"
-                placeholder="Product Name"
+                placeholder="Nombre del producto"
                 required
                 value={name}
                 onChange={(e) => setName(e.target.value)}
@@ -151,7 +151,7 @@ const UpdateProduct = ({ history, match }) => {
               <AttachMoneyIcon />
               <input
                 type="number"
-                placeholder="Price"
+                placeholder="Precio"
                 required
                 onChange={(e) => setPrice(e.target.value)}
                 value={price}
@@ -162,7 +162,7 @@ const UpdateProduct = ({ history, match }) => {
               <DescriptionIcon />
 
               <textarea
-                placeholder="Product Description"
+                placeholder="Descripcion del producto"
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
                 cols="30"
@@ -176,7 +176,7 @@ const UpdateProduct = ({ history, match }) => {
                 value={category}
                 onChange={(e) => setCategory(e.target.value)}
               >
-                <option value="">Choose Category</option>
+                <option value="">Elija una categoria</option>
                 {categories.map((cate) => (
                   <option key={cate} value={cate}>
                     {cate}
@@ -189,7 +189,7 @@ const UpdateProduct = ({ history, match }) => {
               <StorageIcon />
               <input
                 type="number"
-                placeholder="Stock"
+                placeholder="Cantidad"
                 required
                 onChange={(e) => setStock(e.target.value)}
                 value={Stock}
@@ -224,7 +224,7 @@ const UpdateProduct = ({ history, match }) => {
               type="submit"
               disabled={loading ? true : false}
             >
-              Create
+              Actualizar
             </Button>
           </form>
         </div>

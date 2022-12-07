@@ -3,7 +3,7 @@ import "./Shipping.css";
 import { useSelector, useDispatch } from "react-redux";
 import { saveShippingInfo } from "../../actions/cartAction";
 import MetaData from "../layout/MetaData";
-import PinDropIcon from "@material-ui/icons/PinDrop";
+//import PinDropIcon from "@material-ui/icons/PinDrop";
 import HomeIcon from "@material-ui/icons/Home";
 import LocationCityIcon from "@material-ui/icons/LocationCity";
 import PublicIcon from "@material-ui/icons/Public";
@@ -18,18 +18,26 @@ const Shipping = ({ history }) => {
   const alert = useAlert();
   const { shippingInfo } = useSelector((state) => state.cart);
 
-  const [address, setAddress] = useState(shippingInfo.address);
+  /*const [address, setAddress] = useState(shippingInfo.address);
   const [city, setCity] = useState(shippingInfo.city);
   const [state, setState] = useState(shippingInfo.state);
   const [country, setCountry] = useState(shippingInfo.country);
   const [pinCode, setPinCode] = useState(shippingInfo.pinCode);
+  const [phoneNo, setPhoneNo] = useState(shippingInfo.phoneNo);*/
+
+  const [address, setAddress] = useState(shippingInfo.address);
+  const [city, setCity] = useState(shippingInfo.city);
+  const [state, setState] = useState(shippingInfo.state);
+  //const  = "Junín";
+  const country = "Peru";
+  const pinCode = "12001";
   const [phoneNo, setPhoneNo] = useState(shippingInfo.phoneNo);
 
   const shippingSubmit = (e) => {
     e.preventDefault();
 
-    if (phoneNo.length < 10 || phoneNo.length > 10) {
-      alert.error("Phone Number should be 10 digits Long");
+    if (phoneNo.length == 9) {
+      alert.error("El telefono debe contener 9 numeros");
       return;
     }
     dispatch(
@@ -46,7 +54,7 @@ const Shipping = ({ history }) => {
 
       <div className="shippingContainer">
         <div className="shippingBox">
-          <h2 className="shippingHeading">Shipping Details</h2>
+          <h2 className="shippingHeading">Detalles de Envio</h2>
 
           <form
             className="shippingForm"
@@ -57,7 +65,7 @@ const Shipping = ({ history }) => {
               <HomeIcon />
               <input
                 type="text"
-                placeholder="Address"
+                placeholder="Direccion"
                 required
                 value={address}
                 onChange={(e) => setAddress(e.target.value)}
@@ -68,7 +76,7 @@ const Shipping = ({ history }) => {
               <LocationCityIcon />
               <input
                 type="text"
-                placeholder="City"
+                placeholder="Distrito"
                 required
                 value={city}
                 onChange={(e) => setCity(e.target.value)}
@@ -76,15 +84,33 @@ const Shipping = ({ history }) => {
             </div>
 
             <div>
+                <TransferWithinAStationIcon />
+
+                <select
+                  required
+                  value={state}
+                  onChange={(e) => setState(e.target.value)}
+                >
+                  <option value="">State</option>
+                  {State &&
+                    State.getStatesOfCountry(country).map((item) => (
+                      <option key={item.isoCode} value={item.isoCode}>
+                        {item.name}
+                      </option>
+                    ))}
+                </select>
+              </div>
+
+            {/*<div>
               <PinDropIcon />
               <input
                 type="number"
                 placeholder="Pin Code"
                 required
                 value={pinCode}
-                onChange={(e) => setPinCode(e.target.value)}
+                onChange={(e) => setPinCode("12001")}
               />
-            </div>
+            </div>*/}
 
             <div>
               <PhoneIcon />
@@ -98,13 +124,13 @@ const Shipping = ({ history }) => {
               />
             </div>
 
-            <div>
+            {/*<div>
               <PublicIcon />
 
               <select
                 required
                 value={country}
-                onChange={(e) => setCountry(e.target.value)}
+                onChange={(e) => setCountry("Peru")}
               >
                 <option value="">Country</option>
                 {Country &&
@@ -114,9 +140,9 @@ const Shipping = ({ history }) => {
                     </option>
                   ))}
               </select>
-            </div>
+            </div>*/}
 
-            {country && (
+            {/*{country && (
               <div>
                 <TransferWithinAStationIcon />
 
@@ -134,7 +160,7 @@ const Shipping = ({ history }) => {
                     ))}
                 </select>
               </div>
-            )}
+                    )}*/}
 
             <input
               type="submit"

@@ -43,7 +43,7 @@ const ProductList = ({ history }) => {
     }
 
     if (isDeleted) {
-      alert.success("Product Deleted Successfully");
+      alert.success("Producto eliminado");
       history.push("/admin/dashboard");
       dispatch({ type: DELETE_PRODUCT_RESET });
     }
@@ -52,25 +52,29 @@ const ProductList = ({ history }) => {
   }, [dispatch, alert, error, deleteError, history, isDeleted]);
 
   const columns = [
-    { field: "id", headerName: "Product ID", minWidth: 200, flex: 0.5 },
+    { field: "id", headerName: "Id Producto", minWidth: 200, flex: 0.5 },
 
     {
       field: "name",
-      headerName: "Name",
-      minWidth: 350,
-      flex: 1,
+      headerName: "Nombre",
+      minWidth: 100,
+      //minWidth:350,
+      //flex: 1,
+      flex: 0.4,
     },
     {
       field: "stock",
       headerName: "Stock",
       type: "number",
-      minWidth: 150,
-      flex: 0.3,
+      //minWidth: 150,
+      //flex: 0.3,
+      minWidth: 50,
+      flex: 0.2,
     },
 
     {
       field: "price",
-      headerName: "Price",
+      headerName: "Precio",
       type: "number",
       minWidth: 270,
       flex: 0.5,
@@ -79,7 +83,7 @@ const ProductList = ({ history }) => {
     {
       field: "actions",
       flex: 0.3,
-      headerName: "Actions",
+      headerName: "Acciones",
       minWidth: 150,
       type: "number",
       sortable: false,
@@ -122,7 +126,7 @@ const ProductList = ({ history }) => {
       <div className="dashboard">
         <SideBar />
         <div className="productListContainer">
-          <h1 id="productListHeading">ALL PRODUCTS</h1>
+          <h1 id="productListHeading">PRODUCTOS</h1>
 
           <DataGrid
             rows={rows}

@@ -41,15 +41,15 @@ const Cart = ({ history }) => {
         <div className="emptyCart">
           <RemoveShoppingCartIcon />
 
-          <Typography>No Product in Your Cart</Typography>
-          <Link to="/products">View Products</Link>
+          <Typography>No hay productos en tu carrito</Typography>
+          <Link to="/products">Ver productos</Link>
         </div>
       ) : (
         <Fragment>
           <div className="cartPage">
             <div className="cartHeader">
-              <p>Product</p>
-              <p>Quantity</p>
+              <p>Producto</p>
+              <p>Cantidad</p>
               <p>Subtotal</p>
             </div>
 
@@ -78,7 +78,7 @@ const Cart = ({ history }) => {
                       +
                     </button>
                   </div>
-                  <p className="cartSubtotal">{`₹${
+                  <p className="cartSubtotal">{`S/ ${
                     item.price * item.quantity
                   }`}</p>
                 </div>
@@ -87,15 +87,15 @@ const Cart = ({ history }) => {
             <div className="cartGrossProfit">
               <div></div>
               <div className="cartGrossProfitBox">
-                <p>Gross Total</p>
-                <p>{`₹${cartItems.reduce(
+                <p>Total a pagar</p>
+                <p>{`S/ ${cartItems.reduce(
                   (acc, item) => acc + item.quantity * item.price,
                   0
                 )}`}</p>
               </div>
               <div></div>
               <div className="checkOutBtn">
-                <button onClick={checkoutHandler}>Check Out</button>
+                <button onClick={checkoutHandler}>Comprar</button>
               </div>
             </div>
           </div>

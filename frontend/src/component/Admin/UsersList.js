@@ -50,24 +50,28 @@ const UsersList = ({ history }) => {
   }, [dispatch, alert, error, deleteError, history, isDeleted, message]);
 
   const columns = [
-    { field: "id", headerName: "User ID", minWidth: 180, flex: 0.8 },
+    { field: "id", headerName: "ID Usuario", minWidth: 180, flex: 0.5 },
 
     {
       field: "email",
       headerName: "Email",
-      minWidth: 200,
-      flex: 1,
+      //minWidth: 200,
+      //flex: 1,
+      minWidth: 150,
+      flex: 0.9,
     },
     {
       field: "name",
-      headerName: "Name",
-      minWidth: 150,
-      flex: 0.5,
+      headerName: "Nombre",
+      //minWidth: 150,
+      //flex: 0.5,
+      minWidth: 50,
+      flex: 0.4,
     },
 
     {
       field: "role",
-      headerName: "Role",
+      headerName: "Rol",
       type: "number",
       minWidth: 150,
       flex: 0.3,
@@ -81,7 +85,7 @@ const UsersList = ({ history }) => {
     {
       field: "actions",
       flex: 0.3,
-      headerName: "Actions",
+      headerName: "Acciones",
       minWidth: 150,
       type: "number",
       sortable: false,
@@ -124,7 +128,7 @@ const UsersList = ({ history }) => {
       <div className="dashboard">
         <SideBar />
         <div className="productListContainer">
-          <h1 id="productListHeading">ALL USERS</h1>
+          <h1 id="productListHeading">USUARIOS</h1>
 
           <DataGrid
             rows={rows}
