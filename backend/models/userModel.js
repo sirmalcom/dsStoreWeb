@@ -11,14 +11,14 @@ const userSchema = new mongoose.Schema({
   },
   email: {
     type: String,
-    required: [true, "Please Enter Your Email"],
+    required: [true, "Por favor ingrese su email"],
     unique: true,
-    validate: [validator.isEmail, "Please Enter a valid Email"],
+    validate: [validator.isEmail, "Por favor ingrese un email valido"],
   },
   password: {
     type: String,
-    required: [true, "Please Enter Your Password"],
-    minLength: [8, "Password should be greater than 8 characters"],
+    required: [true, "Por favor ingrese su contraseña"],
+    minLength: [8, "La contraseña debe de ser mayor a los 8 caracteres"],
     select: false,
   },
   avatar: {

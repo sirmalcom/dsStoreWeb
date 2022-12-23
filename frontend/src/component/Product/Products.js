@@ -9,15 +9,15 @@ import Slider from "@material-ui/core/Slider";
 import { useAlert } from "react-alert";
 import Typography from "@material-ui/core/Typography";
 import MetaData from "../layout/MetaData";
+import { Button } from "@material-ui/core";
+
 
 const categories = [
-  "Laptop",
-  "Footwear",
-  "Bottom",
-  "Tops",
-  "Attire",
-  "Camera",
-  "SmartPhones",
+  "Hogar",
+  "Niños y bebes",
+  "Mascotas",
+  "Electronicos",
+  "Novedades",
 ];
 
 const Products = ({ match }) => {
@@ -26,9 +26,9 @@ const Products = ({ match }) => {
   const alert = useAlert();
 
   const [currentPage, setCurrentPage] = useState(1);
-  const [price, setPrice] = useState([0, 25000]);
+  const [price] = useState([0, 25000]);
   const [category, setCategory] = useState("");
-
+//setPrice
   const [ratings, setRatings] = useState(0);
 
   const {
@@ -46,9 +46,9 @@ const Products = ({ match }) => {
     setCurrentPage(e);
   };
 
-  const priceHandler = (event, newPrice) => {
+ /* const priceHandler = (event, newPrice) => {
     setPrice(newPrice);
-  };
+  };*/
   let count = filteredProductsCount;
 
   useEffect(() => {
@@ -66,8 +66,8 @@ const Products = ({ match }) => {
         <Loader />
       ) : (
         <Fragment>
-          <MetaData title="PRODUCTS -- ECOMMERCE" />
-          <h2 className="productsHeading">Products</h2>
+          <MetaData title="PRODUCTOS -- DS STORE" />
+          <h2 className="productsHeading">Productos</h2>
 
           <div className="products">
             {products &&
@@ -77,17 +77,17 @@ const Products = ({ match }) => {
           </div>
 
           <div className="filterBox">
-            <Typography>Price</Typography>
+            {/*<Typography>Precio</Typography>
             <Slider
               value={price}
               onChange={priceHandler}
+              aria-labelledby="continuous-slider"
               valueLabelDisplay="auto"
-              aria-labelledby="range-slider"
               min={0}
-              max={25000}
-            />
+              max={1000}
+            />*/}
 
-            <Typography>Categories</Typography>
+            <Typography>Por Categoria</Typography>
             <ul className="categoryBox">
               {categories.map((category) => (
                 <li
@@ -99,9 +99,11 @@ const Products = ({ match }) => {
                 </li>
               ))}
             </ul>
-
+            <br></br>
+            <br></br>
+            <br></br>
             <fieldset>
-              <Typography component="legend">Ratings Above</Typography>
+              <Typography component="legend">Por rating</Typography>
               <Slider
                 value={ratings}
                 onChange={(e, newRating) => {
@@ -113,6 +115,10 @@ const Products = ({ match }) => {
                 max={5}
               />
             </fieldset>
+            <br></br>
+            <br></br>
+            <Button variant="contained" onClick={() => [setCategory(""),setRatings(0)]}>
+              Resetear</Button>
           </div>
           {resultPerPage < count && (
             <div className="paginationBox">

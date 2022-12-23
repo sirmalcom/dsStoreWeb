@@ -22,13 +22,13 @@ const Profile = ({ history }) => {
           <MetaData title={`${user.name}'s Profile`} />
           <div className="profileContainer">
             <div>
-              <h1>My Profile</h1>
+              <h1>Mi Perfil</h1>
               <img src={user.avatar.url} alt={user.name} />
-              <Link to="/me/update">Edit Profile</Link>
+              <Link to="/me/update">Editar Perfil</Link>
             </div>
             <div>
               <div>
-                <h4>Full Name</h4>
+                <h4>Nombre Completo</h4>
                 <p>{user.name}</p>
               </div>
               <div>
@@ -36,13 +36,13 @@ const Profile = ({ history }) => {
                 <p>{user.email}</p>
               </div>
               <div>
-                <h4>Joined On</h4>
+                <h4>Registrado en</h4>
                 <p>{String(user.createdAt).substr(0, 10)}</p>
               </div>
 
               <div>
-                <Link to="/orders">My Orders</Link>
-                <Link to="/password/update">Change Password</Link>
+                <Link to="/orders">Mis Pedidos</Link>
+                <Link to="/password/update">Cambiar Contraseña</Link>
               </div>
             </div>
           </div>

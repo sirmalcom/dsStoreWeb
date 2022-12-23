@@ -39,7 +39,7 @@ const UpdatePassword = ({ history }) => {
     }
 
     if (isUpdated) {
-      alert.success("Profile Updated Successfully");
+      alert.success("Perfil actualizado");
 
       history.push("/account");
 
@@ -55,10 +55,10 @@ const UpdatePassword = ({ history }) => {
         <Loader />
       ) : (
         <Fragment>
-          <MetaData title="Change Password" />
+          <MetaData title="Cambiar Contraseña" />
           <div className="updatePasswordContainer">
             <div className="updatePasswordBox">
-              <h2 className="updatePasswordHeading">Update Profile</h2>
+              <h2 className="updatePasswordHeading">Actualizar Perfil</h2>
 
               <form
                 className="updatePasswordForm"
@@ -68,7 +68,7 @@ const UpdatePassword = ({ history }) => {
                   <VpnKeyIcon />
                   <input
                     type="password"
-                    placeholder="Old Password"
+                    placeholder="Antigua Contraseña"
                     required
                     value={oldPassword}
                     onChange={(e) => setOldPassword(e.target.value)}
@@ -79,7 +79,7 @@ const UpdatePassword = ({ history }) => {
                   <LockOpenIcon />
                   <input
                     type="password"
-                    placeholder="New Password"
+                    placeholder="Nueva Contraseña"
                     required
                     value={newPassword}
                     onChange={(e) => setNewPassword(e.target.value)}
@@ -89,7 +89,7 @@ const UpdatePassword = ({ history }) => {
                   <LockIcon />
                   <input
                     type="password"
-                    placeholder="Confirm Password"
+                    placeholder="Confirmar Contraseña"
                     required
                     value={confirmPassword}
                     onChange={(e) => setConfirmPassword(e.target.value)}
@@ -97,7 +97,7 @@ const UpdatePassword = ({ history }) => {
                 </div>
                 <input
                   type="submit"
-                  value="Change"
+                  value="Cambiar"
                   className="updatePasswordBtn"
                 />
               </form>

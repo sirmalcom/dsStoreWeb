@@ -21,24 +21,24 @@ const UserOptions = ({ user }) => {
   const dispatch = useDispatch();
 
   const options = [
-    { icon: <ListAltIcon />, name: "Orders", func: orders },
-    { icon: <PersonIcon />, name: "Profile", func: account },
+    { icon: <ListAltIcon />, name: "Pedidos", func: orders },
+    { icon: <PersonIcon />, name: "Perfil", func: account },
     {
       icon: (
         <ShoppingCartIcon
           style={{ color: cartItems.length > 0 ? "tomato" : "unset" }}
         />
       ),
-      name: `Cart(${cartItems.length})`,
+      name: `Carrito(${cartItems.length})`,
       func: cart,
     },
-    { icon: <ExitToAppIcon />, name: "Logout", func: logoutUser },
+    { icon: <ExitToAppIcon />, name: "Salir de sesion", func: logoutUser },
   ];
 
   if (user.role === "admin") {
     options.unshift({
       icon: <DashboardIcon />,
-      name: "Dashboard",
+      name: "Panel de Control",
       func: dashboard,
     });
   }
@@ -58,7 +58,7 @@ const UserOptions = ({ user }) => {
   }
   function logoutUser() {
     dispatch(logout());
-    alert.success("Logout Successfully");
+    alert.success("Salida de sesion exitosa");
   }
 
   return (

@@ -1,46 +1,40 @@
 import React from "react";
 import "./aboutSection.css";
-import { Button, Typography, Avatar } from "@material-ui/core";
-import YouTubeIcon from "@material-ui/icons/YouTube";
+import { Typography, Avatar } from "@material-ui/core";
 import InstagramIcon from "@material-ui/icons/Instagram";
+import FacebookIcon from "@material-ui/icons/Facebook";
 const About = () => {
-  const visitInstagram = () => {
-    window.location = "https://instagram.com/meabhisingh";
-  };
   return (
     <div className="aboutSection">
       <div></div>
       <div className="aboutSectionGradient"></div>
       <div className="aboutSectionContainer">
-        <Typography component="h1">About Us</Typography>
+        <Typography component="h1">Sobre Nosotros</Typography>
 
         <div>
           <div>
             <Avatar
               style={{ width: "10vmax", height: "10vmax", margin: "2vmax 0" }}
-              src="https://res.cloudinary.com/tripleayt/image/upload/v1631555947/products/jpyibarlaxawvcvqjv5b.png"
+              src="https://res.cloudinary.com/dil4zkjpi/image/upload/v1669324237/avatars/mzro2qd6h6o2rhudbuqz.jpg"
               alt="Founder"
             />
-            <Typography>Abhishek Singh</Typography>
-            <Button onClick={visitInstagram} color="primary">
-              Visit Instagram
-            </Button>
+            <Typography>DS STORE</Typography>
+           <br/>
             <span>
-              This is a sample wesbite made by @meabhisingh. Only with the
-              purpose to teach MERN Stack on the channel 6 Pack Programmer
+              Somos una empresa que se dedica a la venta de productos novedosos
             </span>
           </div>
           <div className="aboutSectionContainer2">
-            <Typography component="h2">Our Brands</Typography>
+            <Typography component="h2">Visitennos</Typography>
             <a
-              href="https://www.youtube.com/channel/UCO7afj9AUo0zV69pqEYhcjw"
+              href="https://www.facebook.com/DragonSilveryStore"
               target="blank"
             >
-              <YouTubeIcon className="youtubeSvgIcon" />
+              <FacebookIcon className="facebookSvgIcon" color="primary" />
             </a>
 
-            <a href="https://instagram.com/meabhisingh" target="blank">
-              <InstagramIcon className="instagramSvgIcon" />
+            <a href="https://www.instagram.com/ds_store.pe/" target="blank">
+              <InstagramIcon className="instagramSvgIcon" color="third" />
             </a>
           </div>
         </div>

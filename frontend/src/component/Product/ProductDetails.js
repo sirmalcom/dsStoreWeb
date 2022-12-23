@@ -62,7 +62,7 @@ const ProductDetails = ({ match }) => {
 
   const addToCartHandler = () => {
     dispatch(addItemsToCart(match.params.id, quantity));
-    alert.success("Item Added To Cart");
+    alert.success("Articulo añadido al carrito");
   };
 
   const submitReviewToggle = () => {
@@ -93,7 +93,7 @@ const ProductDetails = ({ match }) => {
     }
 
     if (success) {
-      alert.success("Review Submitted Successfully");
+      alert.success("Reseña subida satisfactoriamente");
       dispatch({ type: NEW_REVIEW_RESET });
     }
     dispatch(getProductDetails(match.params.id));
@@ -105,7 +105,7 @@ const ProductDetails = ({ match }) => {
         <Loader />
       ) : (
         <Fragment>
-          <MetaData title={`${product.name} -- ECOMMERCE`} />
+          <MetaData title={`${product.name} -- DS STORE`} />
           <div className="ProductDetails">
             <div>
               <Carousel>
@@ -124,17 +124,17 @@ const ProductDetails = ({ match }) => {
             <div>
               <div className="detailsBlock-1">
                 <h2>{product.name}</h2>
-                <p>Product # {product._id}</p>
+                <p>Producto # {product._id}</p>
               </div>
               <div className="detailsBlock-2">
                 <Rating {...options} />
                 <span className="detailsBlock-2-span">
                   {" "}
-                  ({product.numOfReviews} Reviews)
+                  ({product.numOfReviews} Reseñas)
                 </span>
               </div>
               <div className="detailsBlock-3">
-                <h1>{`₹${product.price}`}</h1>
+                <h1>{`S/ ${product.price}`}</h1>
                 <div className="detailsBlock-3-1">
                   <div className="detailsBlock-3-1-1">
                     <button onClick={decreaseQuantity}>-</button>
@@ -145,36 +145,40 @@ const ProductDetails = ({ match }) => {
                     disabled={product.Stock < 1 ? true : false}
                     onClick={addToCartHandler}
                   >
-                    Add to Cart
+                    Añadir al carrito
                   </button>
                 </div>
 
                 <p>
-                  Status:
+                  Estado: 
                   <b className={product.Stock < 1 ? "redColor" : "greenColor"}>
-                    {product.Stock < 1 ? "OutOfStock" : "InStock"}
+                    {product.Stock < 1 ? " Fuera de Stock" : " En Stock"}
                   </b>
                 </p>
               </div>
 
               <div className="detailsBlock-4">
-                Description : <p>{product.description}</p>
+                Descripcion : 
               </div>
-
+              <br></br>
+              <div>
+                <p className="detailsBlock-3">{product.description}</p>
+              </div>
+              
               <button onClick={submitReviewToggle} className="submitReview">
-                Submit Review
+                Escribir reseña
               </button>
             </div>
           </div>
 
-          <h3 className="reviewsHeading">REVIEWS</h3>
+          <h3 className="reviewsHeading">RESEÑAS</h3>
 
           <Dialog
             aria-labelledby="simple-dialog-title"
             open={open}
             onClose={submitReviewToggle}
           >
-            <DialogTitle>Submit Review</DialogTitle>
+            <DialogTitle>Escribir Reseña</DialogTitle>
             <DialogContent className="submitDialog">
               <Rating
                 onChange={(e) => setRating(e.target.value)}
@@ -192,10 +196,10 @@ const ProductDetails = ({ match }) => {
             </DialogContent>
             <DialogActions>
               <Button onClick={submitReviewToggle} color="secondary">
-                Cancel
+                Cancelar
               </Button>
               <Button onClick={reviewSubmitHandler} color="primary">
-                Submit
+                Subir
               </Button>
             </DialogActions>
           </Dialog>
@@ -208,7 +212,7 @@ const ProductDetails = ({ match }) => {
                 ))}
             </div>
           ) : (
-            <p className="noReviews">No Reviews Yet</p>
+            <p className="noReviews">Aun no se han escrito reseñas</p>
           )}
         </Fragment>
       )}

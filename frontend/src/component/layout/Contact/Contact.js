@@ -5,8 +5,8 @@ import { Button } from "@material-ui/core";
 const Contact = () => {
   return (
     <div className="contactContainer">
-      <a className="mailBtn" href="mailto:mymailforabhi@gmail.com">
-        <Button>Contact: mymailforabhi@gmail.com</Button>
+      <a className="mailBtn" href="https://wa.me/51951931381">
+        <Button>Contactanos para pedir informacion por whatsapp haciendo click aqui</Button>
       </a>
     </div>
   );

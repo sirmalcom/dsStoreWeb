@@ -43,7 +43,7 @@ exports.loginUser = catchAsyncErrors(async (req, res, next) => {
   // checking if user has given password and email both
 
   if (!email || !password) {
-    return next(new ErrorHander("Por favor ingre su usuario y/o contraseña", 400));
+    return next(new ErrorHander("Por favor ingrese su usuario y/o contraseña", 400));
   }
 
   const user = await User.findOne({ email }).select("+password");
@@ -70,7 +70,7 @@ exports.logout = catchAsyncErrors(async (req, res, next) => {
 
   res.status(200).json({
     success: true,
-    message: "Logged Out",
+    message: "Salio de sesion",
   });
 });
 
@@ -87,11 +87,11 @@ exports.forgotPassword = catchAsyncErrors(async (req, res, next) => {
 
   await user.save({ validateBeforeSave: false });
 
-  const resetPasswordUrl = `${req.protocol}://${req.get(
-    "host"
-  )}/password/reset/${resetToken}`;
+  const puerto = process.env.PORT_FRONTEND;
 
-  const message = `Tu token de recuperacion de contraseña es :- \n\n ${resetPasswordUrl} \n\nSi no hizo este pedido, por favor ignore este mensaje`;
+  const resetPasswordUrl = puerto+`password/reset/${resetToken}`;
+
+  const message = `Haga click para cambiar su contraseña :- \n\n ${resetPasswordUrl} \n\nSi no hizo este pedido, por favor ignore este mensaje`;
 
   try {
     await sendEmail({

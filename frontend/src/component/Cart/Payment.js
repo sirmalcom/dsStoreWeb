@@ -98,7 +98,7 @@ const Payment = ({ history }) => {
 
           history.push("/success");
         } else {
-          alert.error("There's some issue while processing payment ");
+          alert.error("Hubo un incoveniente al momento de procesar el pago");
         }
       }
     } catch (error) {
@@ -120,7 +120,7 @@ const Payment = ({ history }) => {
       <CheckoutSteps activeStep={2} />
       <div className="paymentContainer">
         <form className="paymentForm" onSubmit={(e) => submitHandler(e)}>
-          <Typography>Card Info</Typography>
+          <Typography>Informacion de tarjeta</Typography>
           <div>
             <CreditCardIcon />
             <CardNumberElement className="paymentInput" />
@@ -136,7 +136,7 @@ const Payment = ({ history }) => {
 
           <input
             type="submit"
-            value={`Pay - S/ ${orderInfo && orderInfo.totalPrice}`}
+            value={`Pagar - S/ ${orderInfo && orderInfo.totalPrice}`}
             ref={payBtn}
             className="paymentFormBtn"
           />

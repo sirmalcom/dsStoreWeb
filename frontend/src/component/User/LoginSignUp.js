@@ -129,14 +129,14 @@ const LoginSignUp = ({ history, location }) => {
                   <LockOpenIcon />
                   <input
                     type="password"
-                    placeholder="Password"
+                    placeholder="Contraseña"
                     required
                     value={loginPassword}
                     onChange={(e) => setLoginPassword(e.target.value)}
                   />
                 </div>
                 <Link to="/password/forgot">Te olvidaste la contraseña?</Link>
-                <input type="submit" value="Login" className="loginBtn" />
+                <input type="submit" value="Iniciar sesion" className="loginBtn" />
               </form>
               <form
                 className="signUpForm"
@@ -148,7 +148,7 @@ const LoginSignUp = ({ history, location }) => {
                   <FaceIcon />
                   <input
                     type="text"
-                    placeholder="Name"
+                    placeholder="Nombre"
                     required
                     name="name"
                     value={name}
@@ -170,7 +170,7 @@ const LoginSignUp = ({ history, location }) => {
                   <LockOpenIcon />
                   <input
                     type="password"
-                    placeholder="Password"
+                    placeholder="Contraseña"
                     required
                     name="password"
                     value={password}

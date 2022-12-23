@@ -41,7 +41,7 @@ exports.getSingleOrder = catchAsyncErrors(async (req, res, next) => {
   );
 
   if (!order) {
-    return next(new ErrorHander("Order not found with this Id", 404));
+    return next(new ErrorHander("Pedido no encontrado", 404));
   }
 
   res.status(200).json({
@@ -82,11 +82,11 @@ exports.updateOrder = catchAsyncErrors(async (req, res, next) => {
   const order = await Order.findById(req.params.id);
 
   if (!order) {
-    return next(new ErrorHander("Order not found with this Id", 404));
+    return next(new ErrorHander("Pedido no encontrado", 404));
   }
 
   if (order.orderStatus === "Delivered") {
-    return next(new ErrorHander("You have already delivered this order", 400));
+    return next(new ErrorHander("Este pedido ya fue enviado", 400));
   }
 
   if (req.body.status === "Shipped") {
@@ -119,7 +119,7 @@ exports.deleteOrder = catchAsyncErrors(async (req, res, next) => {
   const order = await Order.findById(req.params.id);
 
   if (!order) {
-    return next(new ErrorHander("Order not found with this Id", 404));
+    return next(new ErrorHander("Pedido no encontrado", 404));
   }
 
   await order.remove();

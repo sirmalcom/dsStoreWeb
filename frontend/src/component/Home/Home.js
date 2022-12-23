@@ -30,17 +30,17 @@ const Home = () => {
           <MetaData title="ECOMMERCE" />
 
           <div className="banner">
-            <p>Welcome to Ecommerce</p>
-            <h1>FIND AMAZING PRODUCTS BELOW</h1>
+            <p>Bienvenido a DS STORE</p>
+            <h1>Encuentra increibles productos abajo</h1>
 
             <a href="#container">
               <button>
-                Scroll <CgMouse />
+                Desplazarse <CgMouse />
               </button>
             </a>
           </div>
 
-          <h2 className="homeHeading">Featured Products</h2>
+          <h2 className="homeHeading">Productos agregados</h2>
 
           <div className="container" id="container">
             {products &&

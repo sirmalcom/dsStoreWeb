@@ -15,11 +15,13 @@ const ConfirmOrder = ({ history }) => {
     0
   );
 
-  const shippingCharges = subtotal > 1000 ? 0 : 200;
+  const shippingCharges = 0;
+
+  const realSubTotal = subtotal * 0.82
 
   const tax = subtotal * 0.18;
 
-  const totalPrice = subtotal + tax + shippingCharges;
+  const totalPrice = subtotal + 0 + shippingCharges;
 
   const address = `${shippingInfo.address}, ${shippingInfo.city}, ${shippingInfo.state}, ${shippingInfo.pinCode}, ${shippingInfo.country}`;
 
@@ -43,24 +45,24 @@ const ConfirmOrder = ({ history }) => {
       <div className="confirmOrderPage">
         <div>
           <div className="confirmshippingArea">
-            <Typography>Shipping Info</Typography>
+            <Typography>Informacion de envio</Typography>
             <div className="confirmshippingAreaBox">
               <div>
-                <p>Name:</p>
+                <p>Nombre:</p>
                 <span>{user.name}</span>
               </div>
               <div>
-                <p>Phone:</p>
+                <p>Telefono:</p>
                 <span>{shippingInfo.phoneNo}</span>
               </div>
               <div>
-                <p>Address:</p>
+                <p>Direccion:</p>
                 <span>{address}</span>
               </div>
             </div>
           </div>
           <div className="confirmCartItems">
-            <Typography>Your Cart Items:</Typography>
+            <Typography>Tus articulos de pedido:</Typography>
             <div className="confirmCartItemsContainer">
               {cartItems &&
                 cartItems.map((item) => (
@@ -70,8 +72,8 @@ const ConfirmOrder = ({ history }) => {
                       {item.name}
                     </Link>{" "}
                     <span>
-                      {item.quantity} X ₹{item.price} ={" "}
-                      <b>₹{item.price * item.quantity}</b>
+                      {item.quantity} X S/ {(item.price).toFixed(2)} ={" "}
+                      <b>S/ {(item.price * item.quantity).toFixed(2)}</b>
                     </span>
                   </div>
                 ))}
@@ -81,19 +83,19 @@ const ConfirmOrder = ({ history }) => {
         {/*  */}
         <div>
           <div className="orderSummary">
-            <Typography>Order Summery</Typography>
+            <Typography>Resumen de pedido</Typography>
             <div>
               <div>
                 <p>Subtotal:</p>
-                <span>₹{subtotal}</span>
+                <span>S/ {realSubTotal.toFixed(2)}</span>
               </div>
-              <div>
+              {/*<div>
                 <p>Shipping Charges:</p>
-                <span>₹{shippingCharges}</span>
-              </div>
+                <span>Gratis</span>
+              </div>*/}
               <div>
-                <p>GST:</p>
-                <span>S/ {tax}</span>
+                <p>IGV:</p>
+                <span>S/ {tax.toFixed(2)}</span>
               </div>
             </div>
 
@@ -101,10 +103,10 @@ const ConfirmOrder = ({ history }) => {
               <p>
                 <b>Total:</b>
               </p>
-              <span>S/ {totalPrice}</span>
+              <span>S/ {totalPrice.toFixed(2)}</span>
             </div>
 
-            <button onClick={proceedToPayment}>Proceed To Payment</button>
+            <button onClick={proceedToPayment}>Ir al area de pago</button>
           </div>
         </div>
       </div>

@@ -52,7 +52,7 @@ const ResetPassword = ({ history, match }) => {
           <MetaData title="Change Password" />
           <div className="resetPasswordContainer">
             <div className="resetPasswordBox">
-              <h2 className="resetPasswordHeading">Update Profile</h2>
+              <h2 className="resetPasswordHeading">Cambiar contraseña</h2>
 
               <form
                 className="resetPasswordForm"
@@ -62,7 +62,7 @@ const ResetPassword = ({ history, match }) => {
                   <LockOpenIcon />
                   <input
                     type="password"
-                    placeholder="New Password"
+                    placeholder="Nueva Contraseña"
                     required
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
@@ -72,7 +72,7 @@ const ResetPassword = ({ history, match }) => {
                   <LockIcon />
                   <input
                     type="password"
-                    placeholder="Confirm Password"
+                    placeholder="Confirmar Contraseña"
                     required
                     value={confirmPassword}
                     onChange={(e) => setConfirmPassword(e.target.value)}
@@ -80,7 +80,7 @@ const ResetPassword = ({ history, match }) => {
                 </div>
                 <input
                   type="submit"
-                  value="Update"
+                  value="Cambiar contraseña"
                   className="resetPasswordBtn"
                 />
               </form>

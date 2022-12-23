@@ -6,10 +6,10 @@ import MetaData from "../layout/MetaData";
 //import PinDropIcon from "@material-ui/icons/PinDrop";
 import HomeIcon from "@material-ui/icons/Home";
 import LocationCityIcon from "@material-ui/icons/LocationCity";
-import PublicIcon from "@material-ui/icons/Public";
+//import PublicIcon from "@material-ui/icons/Public";
 import PhoneIcon from "@material-ui/icons/Phone";
-import TransferWithinAStationIcon from "@material-ui/icons/TransferWithinAStation";
-import { Country, State } from "country-state-city";
+//import TransferWithinAStationIcon from "@material-ui/icons/TransferWithinAStation";
+//import { Country, State } from "country-state-city";
 import { useAlert } from "react-alert";
 import CheckoutSteps from "../Cart/CheckoutSteps";
 
@@ -18,26 +18,18 @@ const Shipping = ({ history }) => {
   const alert = useAlert();
   const { shippingInfo } = useSelector((state) => state.cart);
 
-  /*const [address, setAddress] = useState(shippingInfo.address);
-  const [city, setCity] = useState(shippingInfo.city);
-  const [state, setState] = useState(shippingInfo.state);
-  const [country, setCountry] = useState(shippingInfo.country);
-  const [pinCode, setPinCode] = useState(shippingInfo.pinCode);
-  const [phoneNo, setPhoneNo] = useState(shippingInfo.phoneNo);*/
-
   const [address, setAddress] = useState(shippingInfo.address);
   const [city, setCity] = useState(shippingInfo.city);
-  const [state, setState] = useState(shippingInfo.state);
-  //const  = "Junín";
-  const country = "Peru";
+  const state = "JUN";
+  const country = "PE";
   const pinCode = "12001";
   const [phoneNo, setPhoneNo] = useState(shippingInfo.phoneNo);
 
   const shippingSubmit = (e) => {
     e.preventDefault();
 
-    if (phoneNo.length == 9) {
-      alert.error("El telefono debe contener 9 numeros");
+    if (phoneNo.length !== 9) {
+      alert.error("El numero de telefono debe ser de 9 digitos");
       return;
     }
     dispatch(
@@ -83,24 +75,6 @@ const Shipping = ({ history }) => {
               />
             </div>
 
-            <div>
-                <TransferWithinAStationIcon />
-
-                <select
-                  required
-                  value={state}
-                  onChange={(e) => setState(e.target.value)}
-                >
-                  <option value="">State</option>
-                  {State &&
-                    State.getStatesOfCountry(country).map((item) => (
-                      <option key={item.isoCode} value={item.isoCode}>
-                        {item.name}
-                      </option>
-                    ))}
-                </select>
-              </div>
-
             {/*<div>
               <PinDropIcon />
               <input
@@ -108,7 +82,7 @@ const Shipping = ({ history }) => {
                 placeholder="Pin Code"
                 required
                 value={pinCode}
-                onChange={(e) => setPinCode("12001")}
+                onChange={(e) => setPinCode(e.target.value)}
               />
             </div>*/}
 
@@ -116,7 +90,7 @@ const Shipping = ({ history }) => {
               <PhoneIcon />
               <input
                 type="number"
-                placeholder="Phone Number"
+                placeholder="Numero de celular"
                 required
                 value={phoneNo}
                 onChange={(e) => setPhoneNo(e.target.value)}
@@ -130,7 +104,7 @@ const Shipping = ({ history }) => {
               <select
                 required
                 value={country}
-                onChange={(e) => setCountry("Peru")}
+                onChange={(e) => setCountry(e.target.value)}
               >
                 <option value="">Country</option>
                 {Country &&
@@ -164,7 +138,7 @@ const Shipping = ({ history }) => {
 
             <input
               type="submit"
-              value="Continue"
+              value="Continuar"
               className="shippingBtn"
               disabled={state ? false : true}
             />
