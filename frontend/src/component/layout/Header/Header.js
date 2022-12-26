@@ -3,10 +3,11 @@ import { ReactNavbar } from "overlay-navbar";
 import logo from "../../../images/logo.png";
 import dsStore from "../../../images/dsStore.jpg"
 import logazo from "../../../images/logazo2.png"
+import images from "../../../images/Profile.png"
 
 const options = {
   burgerColorHover: "#eb4034",
-  //logo,
+  logo,
   logoWidth: "20vmax",
   navColor1: "white",
   logoHoverSize: "10px",
